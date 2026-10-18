@@ -1,64 +1,122 @@
-/* =============================================
-   MYLINKS - ESTILOS BASE
-   En las próximas clases construirás encima
-   de estos estilos para mejorar el diseño.
-   ============================================= */
-
-/* --- ESTILOS GLOBALES --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  --bg-principal:#323033;
+  --acento:#d48558;
+  --texto:#d48558;
+  --sombra-color:#f0b894;
+  --sombra-dura:4px 4px 0 var(--sombra-color);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
 }
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #0f0f13;
-  color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;min-height:100vh;
+  background:var(--bg-principal);color:var(--texto);
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  line-height:1.5;
 }
-
-/* --- TARJETA PRINCIPAL --- */
-.card {
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  padding: 40px 20px;
+.page{
+  max-width:1040px;margin:0 auto;
+  padding:clamp(1.5rem,5vw,4rem) clamp(1.25rem,5vw,3rem);
+  display:grid;gap:clamp(2rem,5vw,3.5rem);
+  text-align:left;
 }
-
-/* --- FOTO DE PERFIL --- */
-.avatar {
-  border-radius: 50%;
+.badge{
+  display:inline-grid;place-items:center;
+  width:4rem;height:4rem;
+  border:3px solid var(--acento);box-shadow:var(--sombra-dura);
+  font-weight:800;font-size:1.5rem;letter-spacing:-.04em;
 }
-
-/* --- NOMBRE --- */
-.name {
-  font-size: 28px;
-  margin-top: 16px;
+.avatar{
+  display:block;width:clamp(7rem,22vw,10rem);aspect-ratio:1;object-fit:cover;object-position:center top;
+  border:3px solid var(--acento);box-shadow:var(--sombra-dura);background:#fff;
 }
-
-/* --- BIO --- */
-.bio {
-  font-size: 15px;
-  color: #a0a0b0;
-  margin-top: 8px;
+.hero h1{
+  margin:1.5rem 0 .25rem;
+  font-size:clamp(2.75rem,10vw,6.5rem);
+  font-weight:800;line-height:.95;letter-spacing:-.04em;
+  text-transform:uppercase;
 }
-
-/* --- CONTENEDOR DE ENLACES --- */
-.links {
-  margin-top: 24px;
+.role{
+  margin:0;font-weight:600;font-size:clamp(1rem,2.5vw,1.35rem);
+  border-left:6px solid var(--acento);padding-left:.9rem;
 }
-
-/* --- CADA ENLACE --- */
-.link {
-  display: block;
-  padding: 14px;
-  margin-top: 12px;
-  border: 1px solid #2a2a38;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 15px;
+.bio{margin:1.25rem 0 0;max-width:34rem;font-size:clamp(1rem,2vw,1.15rem)}
+.links{display:grid;gap:1.5rem}
+.primary{display:grid;gap:1.5rem}
+.btn{
+  /* Paleta adaptada: degradado naranja (acento) + brillos en #f0b894 */
+  --g0:#eba577;--g50:#d48558;--g100:#c27248;
+  --in-top:rgba(255,236,220,.35);--in-top-lg:rgba(50,48,51,.3);--in-bottom:rgba(240,184,148,.5);
+  --shine-top:#fbe0cb;--shine-bottom:#f0b894;
+  --halo:rgba(212,133,88,.28);
+  position:relative;z-index:1;overflow:hidden;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.1rem 1.6rem;border:none;border-radius:28px;
+  color:var(--bg-principal);
+  font-weight:800;font-size:1.25rem;line-height:1.3;text-decoration:none;text-transform:uppercase;letter-spacing:-.01em;
+  text-shadow:0 .5px .5px rgba(255,255,255,.25);
+  background-image:
+    linear-gradient(to bottom,var(--shine-top),transparent 8px),
+    radial-gradient(closest-side,var(--shine-bottom),transparent),
+    radial-gradient(closest-side,var(--shine-bottom),transparent),
+    linear-gradient(to bottom,var(--g0) 0%,var(--g50) 50%,var(--g100) 100%);
+  background-repeat:no-repeat;
+  background-position:0 -6px,50% 100%,50% 100%,0 0;
+  background-size:100% 100%,92px 16px,112px 2px,100% 100%;
+  box-shadow:
+    0 6px 24px var(--halo),
+    0 4px 12px rgba(0,0,0,.35),
+    0 2px 8px rgba(0,0,0,.3),
+    0 1px 3px var(--in-top-lg),
+    inset 0 1px 1px var(--in-top),
+    inset 0 -1px 3px var(--in-bottom);
+  transition:transform .25s ease,box-shadow .25s ease,background-size .25s ease;
 }
+.btn::before,.btn::after{content:"";position:absolute;border-radius:inherit;will-change:transform}
+.btn::before{
+  left:50%;top:-3px;transform:translateX(-50%);
+  width:96px;height:6px;background:var(--shine-top);
+  opacity:.6;filter:blur(6px);transition:opacity .25s;
+}
+.btn::after{
+  inset:0;z-index:2;opacity:.3;mix-blend-mode:overlay;pointer-events:none;
+  background-image:linear-gradient(135deg,rgba(255,255,255,.55),transparent 40%,rgba(0,0,0,.4));
+}
+.btn>span{position:relative;z-index:1}
+.btn .arrow{font-size:1.5em;line-height:1;transition:transform .25s ease}
+.btn small{display:block;font-weight:400;font-size:.8rem;text-transform:none;letter-spacing:0;opacity:.9}
+.btn--primary{
+  padding:clamp(1.4rem,4vw,2.2rem) 1.8rem;border-radius:32px;
+  font-size:clamp(1.6rem,5vw,2.4rem);
+}
+.btn--primary small{font-size:.85rem;font-weight:600}
+/* Variante oscura para el botón secundario (texto naranja sobre fondo oscuro) */
+.btn--secondary{
+  --g0:#4b474c;--g50:#3d3a3e;--g100:#323033;
+  --shine-top:#f0b894;--shine-bottom:#d48558;
+  --in-top:rgba(240,184,148,.3);--in-bottom:rgba(212,133,88,.35);--halo:rgba(212,133,88,.1);
+  color:var(--texto);text-shadow:0 .5px .5px rgba(0,0,0,.4);
+  font-size:1rem;font-weight:600;padding:.85rem 1.3rem;max-width:26rem;border-radius:24px;
+  box-shadow:
+    0 0 0 1px rgba(212,133,88,.45),
+    0 4px 12px rgba(0,0,0,.35),0 2px 8px rgba(0,0,0,.3),
+    inset 0 1px 1px var(--in-top),inset 0 -1px 3px var(--in-bottom);
+}
+.btn--secondary::before{opacity:.35}
+.label{margin:0 0 -.5rem;font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+.btn:hover{transform:translateY(-2px);background-size:100% 100%,115px 20px,112px 2px,100% 100%}
+.btn:hover::before{opacity:.9}
+.btn--secondary:hover::before{opacity:.6}
+.btn:hover .arrow{transform:translateX(6px)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible{outline:3px solid var(--sombra-color);outline-offset:4px}
+footer{font-size:.8rem;opacity:.85;border-top:2px solid var(--acento);padding-top:1rem}
+
+@media (min-width:768px){
+  .page{grid-template-columns:1.1fr 1fr;align-items:center;min-height:100vh;column-gap:clamp(2rem,6vw,5rem)}
+  footer{grid-column:1/-1}
+  .links{align-content:center}
+}
+@media (prefers-reduced-motion:reduce){.btn,.btn .arrow{transition:none}}

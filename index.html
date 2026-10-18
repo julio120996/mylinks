@@ -1,54 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyLinks - Tu Nombre</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Julio César · MyLinks</title>
+<meta name="description" content="Julio César, estudiante de Ingeniería de Software. Contacto: LinkedIn, GitHub y Email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+<main class="page">
+  <header class="hero">
+    <img class="avatar" src="perfil.jpg" width="160" height="160" alt="Retrato de Julio César">
+    <h1>Julio<br>César</h1>
+    <p class="role">Estudiante de Ingeniería de Software</p>
+    <p class="bio">Me apasiona el desarrollo de aplicaciones web. Si buscas contactarme, empieza por aquí.</p>
+  </header>
 
-    <main class="card">
+  <nav class="links" aria-label="Enlaces de contacto">
+    <p class="label">Contacto directo</p>
+    <div class="primary">
+      <a class="btn btn--primary" href="https://www.linkedin.com/in/juliocesarbustamantequispe1296/" target="_blank" rel="noopener noreferrer">
+        <span>LinkedIn<small>Perfil profesional y experiencia</small></span><span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn btn--primary" href="https://github.com/julio120996" target="_blank" rel="noopener noreferrer">
+        <span>GitHub<small>Código y proyectos</small></span><span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <a class="btn btn--secondary" href="mailto:juliobq1996@gmail.com">
+      <span>Email · juliobq1996@gmail.com</span><span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </nav>
 
-        <!-- FOTO DE PERFIL -->
-        <!-- Cambia "Tu Nombre" en el atributo alt -->
-        <img class="avatar" src="perfil.jpg" alt="Foto de Julio Cesar Bustamante Quispe" width="100"
-            height="100" />
-
-        <!-- NOMBRE Y BIO -->
-        <!-- Reemplaza el texto con tu información -->
-        <h1 class="name">Julio Cesar Bustamante Quispe</h1>
-        <p class="bio">Soy estudiante de ingenieria de Software y me apasiona el desarrollo de aplicaciones web.</p>
-
-
-        <!-- ENLACES -->
-        <!-- Cambia el href y el texto de cada enlace -->
-        <!-- Puedes agregar o quitar enlaces según necesites como FACEBOOK,WHATTSAP,etc cualquier medio de contacto -->
-        <nav class="links">
-
-            <a href="https://github.com/julio120996" class="link" target="_blank">
-                GitHub
-            </a>
-
-            <a href="mailto:tu@email.com" class="link">
-                Email
-            </a>
-
-
-
-        </nav>
-
-    </main>
-
+  <footer>© 2026 Julio César · MyLinks v2</footer>
+</main>
 </body>
-
 </html>
